@@ -6,18 +6,24 @@ class InstamoodRun
     welcome
     #puts a welcome
     #ask for user name
+    #creates new user with name IF NAME DOES NOT EXIT
     main_menu
     #ask how they're feeling
     #display_gif_options
     #choose to keep/reject a gif
-
   end
 
-  def welcome
+  def welcome#still need to check to make sure name doesn't exist
     puts "Welcome to Instamood!"
     puts "Enter your Username"
     name = user_input
-    @name = create_user(name)
+    user = User.all.find{|user| user.name == name}
+    if user
+      @name = user
+      puts "Welcome back #{name}!"
+    else
+      @name = create_user(name)
+    end
   end
 
   def create_user(name)
@@ -75,13 +81,12 @@ class InstamoodRun
     gif = Gif.all.select{|gifs| gifs.category == category}
     # binding.pry
     user_choice = gif.sample
-    puts user_choice.url
-    #pull random gif from gif table where category matches feeling
+    puts user_choice.url#should actually display this gif in the terminal
     puts "type 'keep' to keep this gif or 'reject' for another option"
     input = user_input
     if input == "keep"
       save_mood(user_choice, @name)
-      puts "TEST STRING"
+      puts "TEST STRING"#remove this line when project complete
       return
     elsif
       while input == "reject"
@@ -92,7 +97,7 @@ class InstamoodRun
           gif_options(category)
         elsif input == "keep"
           save_mood(user_choice, @name)
-          puts "test string"
+          puts "test string"#remove this line when project complete
           return
         end
       end
@@ -110,14 +115,12 @@ class InstamoodRun
       user_id: user.id,
       caption: caption
     )
-    #once they choose to keep once
-    #user_input_caption
-    #save new Mood instance to the db
   end
 
 
 
   def  display_gif_options
+    #HOW TO ACTUALLY DISPLAY THE GIF IN THE TERMINAL
   end
 
 
