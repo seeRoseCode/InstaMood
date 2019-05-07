@@ -1,3 +1,4 @@
+require 'pry'
 class InstamoodRun
 
   def run
@@ -19,26 +20,28 @@ class InstamoodRun
 
   def main_menu
     hru#asks how they're feeling
-    feeling = user_input
+    feeling = user_input.to_i
     case feeling
       when 1
-        gif_options("Happy")
+        gif_options("happy")
       when 2
-        gif_options("Sad")
+        gif_options("sad")
       when 3
-        gif_options("Flirty")
+        gif_options("flirty")
       when 4
-        gif_options("Angry")
+        gif_options("angry")
       when 5
-        gif_options("Excited")
+        gif_options("excited")
       when 6
-        gif_options("Calm")
+        gif_options("calm")
       when 7
-        gif_options(7)
+        gif_options("hangry")
       when 8
-        gif_options(8)
+        gif_options("tired")
       when 9
-        gif_options(9)
+        gif_options("frustrated")
+      when 10
+        gif_options("like an Imposter")
       end
   end
 
@@ -60,30 +63,38 @@ class InstamoodRun
   end
 
 
-  def gif_options(id_number)
-    Gif.find_by(category: )
-    #pull random gif from gif table where category matches feeling
-    puts "type 'keep' to keep this gif or 'reject' for another option"
-    input = user_input
-    if input == "keep"
-      #display gif
-    elsif input == "reject"
-      #display next gif option
-    else
-      puts "please enter keep or reject"
-    end
+  def gif_options(category)
+    return Gif.all.find_by(category: category).url
+    # binding.pry
+    # gif.first
+    ##pull random gif from gif table where category matches feeling
+    # puts "type 'keep' to keep this gif or 'reject' for another option"
+    # input = user_input
+    # if input == "keep"
+    #   #run save_mood
+    # elsif input == "reject"
+    #   n = rand(1..Gif.all.length)
+    #   while input == "reject"
+    #     gif.find_by(id: n)
+    #     puts "type 'keep' to keep this gif or 'reject' for another option"
+    #     input
+    #   end
+    # else
+    #   puts "please enter keep or reject"
+    #   gif_options
+    # end
   end
 
-  def save_mood
-    #once they choose to keep once
-    #user_input_caption
-    #save new Mood instance to the db
-  end
+  # def save_mood
+  #   #once they choose to keep once
+  #   #user_input_caption
+  #   #save new Mood instance to the db
+  # end
 
 
 
-  def  display_gif_options
-  end
+  # def  display_gif_options
+  # end
 
 
   def user_input
