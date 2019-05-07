@@ -1,5 +1,6 @@
 require 'pry'
 class InstamoodRun
+  attr_accessor :name
 
   def run
     welcome
@@ -15,7 +16,14 @@ class InstamoodRun
   def welcome
     puts "Welcome to Instamood!"
     puts "Enter your Username"
-    user_input
+    name = user_input
+    @name = create_user(name)
+  end
+
+  def create_user(name)
+    User.create(
+      name: name
+    )
   end
 
   def main_menu
@@ -66,12 +74,13 @@ class InstamoodRun
   def gif_options(category)
     gif = Gif.all.select{|gifs| gifs.category == category}
     # binding.pry
-    puts gif.sample.url
+    user_choice = gif.sample
+    puts user_choice.url
     #pull random gif from gif table where category matches feeling
     puts "type 'keep' to keep this gif or 'reject' for another option"
     input = user_input
     if input == "keep"
-      #save_mood
+      save_mood(user_choice, @name)
       puts "TEST STRING"
       return
     elsif
@@ -82,10 +91,10 @@ class InstamoodRun
         if input == "reject"
           gif_options(category)
         elsif input == "keep"
-          #save_mood
+          save_mood(user_choice, @name)
           puts "test string"
           return
-      end
+        end
       end
     else
       puts "please enter keep or reject"
@@ -93,20 +102,26 @@ class InstamoodRun
     end
   end
 
-  # def save_mood
-  #   #once they choose to keep once
-  #   #user_input_caption
-  #   #save new Mood instance to the db
-  # end
+  def save_mood(gif, user)
+    puts "Enter your caption"
+    caption = user_input
+    Mood.create(
+      gif_id: gif.id,
+      user_id: user.id,
+      caption: caption
+    )
+    #once they choose to keep once
+    #user_input_caption
+    #save new Mood instance to the db
+  end
 
 
 
-  # def  display_gif_options
-  # end
+  def  display_gif_options
+  end
 
 
   def user_input
     gets.chomp
   end
-
 end

@@ -1,5 +1,6 @@
 User.destroy_all
 Gif.destroy_all
+Mood.destroy_all
 
 user1 = User.create(
   name: "Kesha"
@@ -24,7 +25,6 @@ gif2 = Gif.create(
   url: "https://media0.giphy.com/media/58FMysL4cmjsIales5/giphy.gif?cid=790b76115cd17c85334b51596b6ad404&rid=giphy.gif",
   desc: "I wanna cry"
 )
-
 gif3 = Gif.create(
   category: "imposter",
   url: "https://media.giphy.com/media/dt55CHaeQTNIfMpLRV/giphy.gif",

@@ -6,7 +6,6 @@ class User < ActiveRecord::Base
    def list_moods
      Mood.all.each do |mood|
        puts "#{mood.gif_id.url} \n #{mood.caption}"
-       binding.pry
      end
    end
 
