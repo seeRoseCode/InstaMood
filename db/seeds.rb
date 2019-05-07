@@ -31,6 +31,22 @@ gif3 = Gif.create(
   desc: "impasta"
 )
 
+gif4 = Gif.create(
+  category: "happy",
+  url: "https://media3.giphy.com/media/1mik4VnQ2yRfo1MJyw/giphy.gif?cid=790b76115cd17b3a452f4a4e59491829&rid=giphy.gif",
+  desc: "Bob Ross"
+)
+
+gif5 = Gif.create(
+  category: "happy",
+  url: "https://media3.giphy.com/media/l1J9Forw8xWRvJNT2/giphy.gif?cid=790b76115cd17e0b416d6365455d2d7d&rid=giphy.gif",
+  desc: "Beyonce"
+)
+gif6 = Gif.create(
+  category: "happy",
+  url: "https://media1.giphy.com/media/9xrrQ9UX8ImQWlHGwv/giphy.gif?cid=790b76115cd17b62396c33612e98f65e&rid=giphy.gif",
+  desc: "happy kid"
+)
 mood1 = Mood.create(
   gif_id: gif1.id,
   user_id: user1.id,
