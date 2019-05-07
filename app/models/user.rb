@@ -4,8 +4,9 @@ class User < ActiveRecord::Base
    has_many :gifs, through: :moods
 
    def list_moods
-     Mood.all.each do |mood|
-       puts "#{mood.gif_id.url} \n #{mood.caption}"
+     moods = self.moods
+     moods.each do |mood|
+     puts "#{mood.gif.url} \n #{mood.caption}"
      end
    end
 
