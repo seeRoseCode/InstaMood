@@ -13,7 +13,7 @@ class InstamoodRun
     #choose to keep/reject a gif
   end
 
-  def welcome#still need to check to make sure name doesn't exist
+  def welcome
     puts "Welcome to Instamood!"
     puts "Enter your Username"
     name = user_input
