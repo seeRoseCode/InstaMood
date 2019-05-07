@@ -2,13 +2,13 @@ USER STORIES
 # 1.	As a user, I want to be able to enter my name to retrieve my previous mood entries.
 # 2.	As a user I want to be able to enter my mood and retrieve corresponding GIF from the app
 # 3.	As a user I want to be able to reject the computer generated response
-4.	As a user I want to be able to save the mood entries I’ve made and retrieve previous entries
+# 4.	As a user I want to be able to save the mood entries I’ve made and retrieve previous entries
 
 OTHER FUNCTIONALITY
-1. user can view all previous entries
+# 1. user can view all previous entries
   -formatted
-2. user can delete previous entries
-3. user can update previous entry
+2. user can delete previous entries - PAULA
+3. user can update previous entry - KESHA
 
 
 DELIVERABLES
@@ -19,6 +19,7 @@ DELIVERABLES
 5. Prints a random GIF from that query to the monitor.
 #6. User can choose to save or reject that mood
 7. User can see all their moods and related GIFs
+8. COSMETICS!
 
 
 HOPES AND DREAMS
