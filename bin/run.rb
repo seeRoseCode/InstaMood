@@ -1,4 +1,4 @@
 require_relative '../config/environment'
 
 
-InstamoodRun.new.run
+# InstamoodRun.new.run
