@@ -6,9 +6,12 @@ class User < ActiveRecord::Base
    def list_moods
      moods = self.moods
      moods.each do |mood|
-     puts "#{mood.gif.url} \n #{mood.caption}"
+     puts "#{mood.id}. #{mood.gif.url} \n #{mood.caption}"
      end
    end
 
+   def retrieve_mood(id)
+     puts Mood.all.find(id)
+   end
 
 end
