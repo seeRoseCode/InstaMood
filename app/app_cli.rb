@@ -41,7 +41,7 @@ class InstamoodRun
       when 9
         gif_options("frustrated")
       when 10
-        gif_options("like an Imposter")
+        gif_options("imposter")
       end
   end
 
@@ -64,25 +64,33 @@ class InstamoodRun
 
 
   def gif_options(category)
-    return Gif.all.find_by(category: category).url
+    gif = Gif.all.select{|gifs| gifs.category == category}
     # binding.pry
-    # gif.first
-    ##pull random gif from gif table where category matches feeling
-    # puts "type 'keep' to keep this gif or 'reject' for another option"
-    # input = user_input
-    # if input == "keep"
-    #   #run save_mood
-    # elsif input == "reject"
-    #   n = rand(1..Gif.all.length)
-    #   while input == "reject"
-    #     gif.find_by(id: n)
-    #     puts "type 'keep' to keep this gif or 'reject' for another option"
-    #     input
-    #   end
-    # else
-    #   puts "please enter keep or reject"
-    #   gif_options
-    # end
+    puts gif.sample.url
+    #pull random gif from gif table where category matches feeling
+    puts "type 'keep' to keep this gif or 'reject' for another option"
+    input = user_input
+    if input == "keep"
+      #save_mood
+      puts "TEST STRING"
+      return
+    elsif
+      while input == "reject"
+        puts gif.sample.url
+        puts "type 'keep' to keep this gif or 'reject' for another option"
+        input = user_input
+        if input == "reject"
+          gif_options(category)
+        elsif input == "keep"
+          #save_mood
+          puts "test string"
+          return
+      end
+      end
+    else
+      puts "please enter keep or reject"
+      gif_options(category)
+    end
   end
 
   # def save_mood
