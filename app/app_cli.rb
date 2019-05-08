@@ -4,34 +4,24 @@ class InstamoodRun
 
   def run
     welcome
-    #puts a welcome
-    #ask for user name
-    #creates new user with name IF NAME DOES NOT EXIT
   #ENTER A SLEEP FUNCTION
     main_menu
     #ask how they're feeling
     #display_gif_options
     #choose to keep/reject a gif
 #ENTER A SLEEP FUNCTION
-    second_menu
-    #ask what they want to do next
-      #update_mood
-      #delete_moods
-      #see moods of other users
-      #rate_the_app
-      #exit
-
+  exit
   end
 
   def second_menu
     what_next
     choice = user_input.to_i
-    until choice != 0 && choice <= 6
-      puts "please type a number 1-6"
+    until choice != 0 && choice <= 7
+      puts "please type a number 1-7"
       choice = user_input.to_i
     end
     case choice
-      when 1
+      when 1#working
         main_menu
       when 2#working
         puts "enter the mood id for the mood you'd like to update"
@@ -51,12 +41,15 @@ class InstamoodRun
           second_menu
         end
       when 4#working
+        @name.list_moods
+        second_menu
+      when 5#working
         Mood.list_all
-        #see other people's moods
-      when 5
+        second_menu
+      when 6
         #rate the app
-      when 6#working
-        exit
+      when 7#working
+        return
       end
   end
 
@@ -66,9 +59,10 @@ class InstamoodRun
     1. create a new mood
     2. update a mood
     3. delete my moods
-    4. view all moods
-    5. rate the app :)
-    6. exit Instamood :(
+    4. view my moods
+    5. view all moods
+    6. rate the app :)
+    7. exit Instamood :(
     end
     puts "please choose a number"
   end
@@ -125,7 +119,7 @@ class InstamoodRun
       when 10
         gif_options("imposter")
       end
-      @name.list_moods
+      second_menu
   end
 
   def hru
@@ -144,7 +138,6 @@ class InstamoodRun
     end
     puts "Please choose a number"
   end
-
 
   def gif_options(category)
     gif = Gif.where("category  = 'happy'")#find active record method for this where query
@@ -178,9 +171,7 @@ class InstamoodRun
     )
   end
 
-
-
-  def  display_gif_options
+  def  display_gif_in_terminal
     #HOW TO ACTUALLY DISPLAY THE GIF IN THE TERMINAL
   end
 
@@ -188,4 +179,5 @@ class InstamoodRun
   def user_input
     gets.chomp.downcase
   end
+
 end
