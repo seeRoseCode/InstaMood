@@ -1,11 +1,11 @@
 require_relative '../config/environment'
 require 'pry'
 
-InstamoodRun.new.run
+# InstamoodRun.new.run
 #
-# user1 = User.all[0]
+user1 = User.all[0]
 
 # InstamoodRun.new.welcome
-
-# binding.pry
+user1.update_mood(17)
+binding.pry
 0
