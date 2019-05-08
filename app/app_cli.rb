@@ -4,9 +4,6 @@ class InstamoodRun
 
   def run
     welcome
-    #puts a welcome
-    #ask for user name
-    #creates new user with name IF NAME DOES NOT EXIT
   #ENTER A SLEEP FUNCTION
     sleep 1
     main_menu
@@ -23,30 +20,48 @@ class InstamoodRun
       #rate_the_app
       #exit
 
+
+  exit
   end
 
   def second_menu
     sleep 1
     what_next
     choice = user_input.to_i
-    until choice != 0 && choice <= 5
-      puts "please type a number 1-5"
+    until choice != 0 && choice <= 7
+      puts "please type a number 1-7"
       choice = user_input.to_i
     end
     case choice
-      when 1
+      when 1#working
+        main_menu
+      when 2#working
         puts "enter the mood id for the mood you'd like to update"
         id = user_input.to_i
         @name.update_mood(id)
         second_menu
-      when 2
-        #delete_moods
-      when 3
-        #see other people's moods
-      when 4
+      when 3#working
+        puts "your feelings are valid! DON'T DELETE!"
+        #sleep
+        puts "if you still want to delete type yes"
+        input = user_input
+        if input == "yes"
+          @name.delete_moods
+          second_menu
+        else
+          puts "Whew! Good choice."
+          second_menu
+        end
+      when 4#working
+        @name.list_moods
+        second_menu
+      when 5#working
+        Mood.list_all
+        second_menu
+      when 6
         #rate the app
-      when 5
-        exit
+      when 7#working
+        return
       end
   end
 
@@ -54,11 +69,13 @@ class InstamoodRun
     puts "what would you like to do next?"
     sleep 1
     puts <<-end
-    1. update a mood
-    2. delete my moods
-    3. see other people's moods
-    4. rate the app :)
-    5. exit Instamood :(
+    1. create a new mood
+    2. update a mood
+    3. delete my moods
+    4. view my moods
+    5. view all moods
+    6. rate the app :)
+    7. exit Instamood :(
     end
     sleep 1
     puts "please choose a number"
@@ -118,7 +135,7 @@ class InstamoodRun
       when 10
         gif_options("imposter")
       end
-      @name.list_moods
+      second_menu
   end
 
   def hru
@@ -139,7 +156,6 @@ class InstamoodRun
     sleep 1
     puts "Please choose a number"
   end
-
 
   def gif_options(category)
     gif = Gif.where("category  = 'happy'")#find active record method for this where query
@@ -177,9 +193,7 @@ class InstamoodRun
     )
   end
 
-
-
-  def  display_gif_options
+  def  display_gif_in_terminal
     #HOW TO ACTUALLY DISPLAY THE GIF IN THE TERMINAL
   end
 
@@ -187,4 +201,5 @@ class InstamoodRun
   def user_input
     gets.chomp.downcase
   end
+
 end
