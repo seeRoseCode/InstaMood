@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
    def list_moods
      moods = self.moods
      moods.each do |mood|
-       binding.pry
+       # binding.pry
      puts "#{mood.id}. #{mood.gif.url} \n #{mood.caption}"
      end
    end
@@ -23,5 +23,14 @@ class User < ActiveRecord::Base
      mood
    end
 
+   def delete_moods
+     list_moods
+     puts "If you're sure you want to delete your previous gifs, please type 'yes'"
+     decision = gets.chomp
+     if decision == 'yes' || decision == 'Yes' || decision == 'YES'
+       self.moods.destroy_all
+       puts "All done!"
+     end
+   end
 
 end
