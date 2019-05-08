@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
      mood
    end
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b25e3e5e53f50f4394996cc50f44451346fff720
    def delete_moods
      list_moods
      puts "If you're sure you want to delete your previous gifs, please type 'yes'"

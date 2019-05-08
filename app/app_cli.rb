@@ -35,6 +35,10 @@ class InstamoodRun
   def main_menu
     hru#asks how they're feeling
     feeling = user_input.to_i
+    until feeling != 0 && feeling <= 10
+      puts "please type a number 1-10"
+      feeling = user_input.to_i
+    end
     case feeling
       when 1
         gif_options("happy")
@@ -78,7 +82,7 @@ class InstamoodRun
 
 
   def gif_options(category)
-    gif = Gif.all.select{|gifs| gifs.category == category}#find active record method for this where query
+    gif = Gif.where("category  = 'happy'")#find active record method for this where query
     # binding.pry
     user_choice = gif.sample
     puts user_choice.url#should actually display this gif in the terminal
