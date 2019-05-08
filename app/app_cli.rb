@@ -43,11 +43,11 @@ class InstamoodRun
       when 4
         #rate the app
       when 5
-        #exit the app!
+        exit
       end
   end
 
-  def what_next
+  def what_next#COMPLETE
     puts "what would you like to do next?"
     puts <<-end
     1. update a mood
@@ -59,6 +59,9 @@ class InstamoodRun
     puts "please choose a number"
   end
 
+  def exit#COMPLETE
+    puts "Thank you for using Instamood! Have a good day!"
+  end
 
   def welcome
     puts "Welcome to Instamood!"
