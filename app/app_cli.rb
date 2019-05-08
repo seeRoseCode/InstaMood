@@ -35,8 +35,8 @@ class InstamoodRun
   def main_menu
     hru#asks how they're feeling
     feeling = user_input.to_i
-    if feeling == 0
-      puts "please type a number"
+    until feeling != 0 && feeling <= 10
+      puts "please type a number 1-10"
       feeling = user_input.to_i
     end
     case feeling
