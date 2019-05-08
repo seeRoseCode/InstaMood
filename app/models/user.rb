@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
      moods = self.moods
      moods.each do |mood|
        binding.pry
-     puts "#{mood.id}. #{mood.gifs.url} \n #{mood.caption}"
+     puts "#{mood.id}. #{mood.gif.url} \n #{mood.caption}"
      end
    end
 

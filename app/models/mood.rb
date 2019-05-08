@@ -1,4 +1,4 @@
 class Mood < ActiveRecord::Base
-  has_many :users
-  has_many :gifs
+  belongs_to :user
+  belongs_to :gif
 end
