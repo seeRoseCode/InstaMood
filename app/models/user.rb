@@ -6,12 +6,22 @@ class User < ActiveRecord::Base
    def list_moods
      moods = self.moods
      moods.each do |mood|
-     puts "#{mood.id}. #{mood.gif.url} \n #{mood.caption}"
+       binding.pry
+     puts "#{mood.id}. #{mood.gifs.url} \n #{mood.caption}"
      end
    end
 
    def retrieve_mood(id)
-     puts Mood.all.find(id)
+     Mood.all.find(id)
    end
+
+   def update_mood(id)
+     mood = retrieve_mood(id)
+     new_caption = gets.chomp
+     mood.update(caption: new_caption)
+     puts "your new caption is #{new_caption}"
+     mood
+   end
+
 
 end
