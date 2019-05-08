@@ -6,9 +6,9 @@ USER STORIES
 
 OTHER FUNCTIONALITY
 # 1. user can view all previous entries
-  -formatted
-2. user can delete previous entries - PAULA
-3. user can update previous entry - KESHA
+  #-formatted
+#2. user can delete previous entries - PAULA
+#3. user can update previous entry - KESHA
 
 
 DELIVERABLES
@@ -16,9 +16,9 @@ DELIVERABLES
 #2. Asks the user for their current mood.
 #3. Stores the users mood entry
 #4. Based on user response, queries an API db for GIFs related to that mood.
-5. Prints a random GIF from that query to the monitor.
+#5. Prints a random GIF from that query to the monitor.
 #6. User can choose to save or reject that mood
-7. User can see all their moods and related GIFs
+#7. User can see all their moods and related GIFs
 8. COSMETICS!
 
 
