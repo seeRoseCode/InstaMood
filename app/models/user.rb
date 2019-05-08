@@ -23,19 +23,19 @@ class User < ActiveRecord::Base
      mood
    end
 
-<<<<<<< HEAD
    def delete_moods
      list_moods
      puts "If you're sure you want to delete your previous gifs, please type 'yes'"
-     decision = gets.chomp
-     if decision == 'yes' || decision == 'Yes' || decision == 'YES'
+     decision = user_input
+     if decision == 'yes' 
        self.moods.destroy_all
        puts "All done!"
      end
-=======
+   end
+
+
    def user_input
      gets.chomp.downcase
->>>>>>> 427d71bbb2225253eace8d4c214df1911aa6eede
    end
 
 end

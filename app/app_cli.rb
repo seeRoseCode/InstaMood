@@ -115,11 +115,6 @@ class InstamoodRun
     #HOW TO ACTUALLY DISPLAY THE GIF IN THE TERMINAL
   end
 
-  def delete_gifs
-    #After all previously chosen gifs show up, gives option to delete
-    #user can delete their previous gifs
-  end
-
 
   def user_input
     gets.chomp.downcase
