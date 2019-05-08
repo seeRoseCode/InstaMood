@@ -4,13 +4,11 @@ class InstamoodRun
 
   def run
     welcome
-  #ENTER A SLEEP FUNCTION
     sleep 1
     main_menu
     #ask how they're feeling
     #display_gif_options
     #choose to keep/reject a gif
-#ENTER A SLEEP FUNCTION
     sleep 1
     second_menu
     #ask what they want to do next
