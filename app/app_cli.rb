@@ -8,11 +8,13 @@ class InstamoodRun
     #ask for user name
     #creates new user with name IF NAME DOES NOT EXIT
   #ENTER A SLEEP FUNCTION
+    sleep 1
     main_menu
     #ask how they're feeling
     #display_gif_options
     #choose to keep/reject a gif
 #ENTER A SLEEP FUNCTION
+    sleep 1
     second_menu
     #ask what they want to do next
       #update_mood
@@ -24,6 +26,7 @@ class InstamoodRun
   end
 
   def second_menu
+    sleep 1
     what_next
     choice = user_input.to_i
     until choice != 0 && choice <= 5
@@ -49,6 +52,7 @@ class InstamoodRun
 
   def what_next#COMPLETE
     puts "what would you like to do next?"
+    sleep 1
     puts <<-end
     1. update a mood
     2. delete my moods
@@ -56,6 +60,7 @@ class InstamoodRun
     4. rate the app :)
     5. exit Instamood :(
     end
+    sleep 1
     puts "please choose a number"
   end
 
@@ -65,6 +70,7 @@ class InstamoodRun
 
   def welcome
     puts "Welcome to Instamood!"
+    sleep 1
     puts "Enter your Username"
     name = user_input
     user = User.all.find{|user| user.name == name}
@@ -84,6 +90,7 @@ class InstamoodRun
 
   def main_menu
     hru#asks how they're feeling
+    sleep 1
     feeling = user_input.to_i
     until feeling != 0 && feeling <= 10
       puts "please type a number 1-10"
@@ -116,6 +123,7 @@ class InstamoodRun
 
   def hru
     puts "How are you feeling?"
+    sleep 1
     puts <<-end
     1. Happy
     2. Sad
@@ -128,6 +136,7 @@ class InstamoodRun
     9. Frustrated
     10. Like an Imposter
     end
+    sleep 1
     puts "Please choose a number"
   end
 
@@ -137,14 +146,17 @@ class InstamoodRun
     # binding.pry
     user_choice = gif.sample
     puts user_choice.url#should actually display this gif in the terminal
+    sleep 1
     puts "type 'keep' to keep this gif or 'reject' for another option"
     input = user_input
     until input == "keep"
       if input == "reject"
         puts gif.sample.url
+        sleep 1
         puts "keep or reject"
         input = user_input
       else
+        sleep 1
         puts "please type keep or reject"
         input = user_input
       end
@@ -155,6 +167,7 @@ class InstamoodRun
   end
 
   def save_mood(gif, user)
+    sleep 1
     puts "Enter your caption"
     caption = user_input
     Mood.create(
