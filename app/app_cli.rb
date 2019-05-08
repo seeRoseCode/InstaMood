@@ -35,6 +35,10 @@ class InstamoodRun
   def main_menu
     hru#asks how they're feeling
     feeling = user_input.to_i
+    if feeling == 0
+      puts "please type a number"
+      feeling = user_input.to_i
+    end
     case feeling
       when 1
         gif_options("happy")
