@@ -7,6 +7,6 @@ InstamoodRun.new.run
 
 # InstamoodRun.new.welcome
 # user1.update_mood(17)
-user1.list_moods
-binding.pry
+# user1.list_moods
+# binding.pry
 0

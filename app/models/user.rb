@@ -23,5 +23,8 @@ class User < ActiveRecord::Base
      mood
    end
 
+   def user_input
+     gets.chomp.downcase
+   end
 
 end
