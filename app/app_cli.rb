@@ -61,7 +61,6 @@ class InstamoodRun
             puts "Whew! Good choice."
             second_menu
           end
->>>>>>> b169c7aa96bfc34619650668232b2e02ec7b89cb
       when 4#working
         @name.list_moods
         second_menu
