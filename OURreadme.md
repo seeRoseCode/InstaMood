@@ -6,9 +6,17 @@ USER STORIES
 
 OTHER FUNCTIONALITY
 # 1. user can view all previous entries
+<<<<<<< HEAD
   #-formatted
 #2. user can delete previous entries - PAULA
 #3. user can update previous entry - KESHA
+=======
+  -formatted
+2. user can delete previous entries - PAULA
+3. user can update previous entry - KESHA
+4. user can rate the app
+5. user can like other people's moods 
+>>>>>>> b98020d2fc04523758ef58874274641c6eff2499
 
 
 DELIVERABLES
