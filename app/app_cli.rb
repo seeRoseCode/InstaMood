@@ -84,17 +84,19 @@ class InstamoodRun
     puts user_choice.url#should actually display this gif in the terminal
     puts "type 'keep' to keep this gif or 'reject' for another option"
     input = user_input
-    until input == "Keep"
-      if input != "reject"
-      puts "please type keep or reject"
-      input == user_input
+    until input == "keep"
+      if input == "reject"
+        puts gif.sample.url
+        puts "keep or reject"
+        input = user_input
       else
-      puts user_choice.url
-      puts "keep or reject"
-      input == user_input
+        puts "please type keep or reject"
+        input = user_input
+      end
     end
     save_mood(user_choice, @name)
-    end 
+    puts "TESTING 1 2 3"
+    return
   end
 
   def save_mood(gif, user)
@@ -120,6 +122,6 @@ class InstamoodRun
 
 
   def user_input
-    gets.chomp
+    gets.chomp.downcase
   end
 end
