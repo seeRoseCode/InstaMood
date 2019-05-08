@@ -4,7 +4,7 @@ class InstamoodRun
 
   def run
     welcome
-    sleep 1
+    sleep 2
     main_menu
     #ask how they're feeling
     #display_gif_options
@@ -40,7 +40,7 @@ class InstamoodRun
         second_menu
       when 3#working
         puts "your feelings are valid! DON'T DELETE!"
-        #sleep
+        sleep 1
         puts "if you still want to delete type yes"
         input = user_input
         if input == "yes"
@@ -75,7 +75,6 @@ class InstamoodRun
     6. rate the app :)
     7. exit Instamood :(
     end
-    sleep 1
     puts "please choose a number"
   end
 
