@@ -33,3 +33,19 @@ HOPES AND DREAMS
     - Give user option to like those posts
 6.	User is able to rate their experience store all ratings.
 7.	average all ratings and print average to the console
+
+
+
+
+APP_CLI METHODS
+1. #welcome
+    #puts a welcome
+    #ask for user name
+    #creates new user with name IF NAME DOES NOT EXIT
+2. #second_menu
+    #ask what they want to do next
+    #update_mood
+    #delete_moods
+    #see moods of other users
+    #rate_the_app
+    #exit the app
