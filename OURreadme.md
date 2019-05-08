@@ -9,6 +9,8 @@ OTHER FUNCTIONALITY
   -formatted
 2. user can delete previous entries - PAULA
 3. user can update previous entry - KESHA
+4. user can rate the app
+5. user can like other people's moods 
 
 
 DELIVERABLES

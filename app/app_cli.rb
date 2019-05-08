@@ -7,11 +7,58 @@ class InstamoodRun
     #puts a welcome
     #ask for user name
     #creates new user with name IF NAME DOES NOT EXIT
+  #ENTER A SLEEP FUNCTION
     main_menu
     #ask how they're feeling
     #display_gif_options
     #choose to keep/reject a gif
+#ENTER A SLEEP FUNCTION
+    second_menu
+    #ask what they want to do next
+      #update_mood
+      #delete_moods
+      #see moods of other users
+      #rate_the_app
+      #exit
+
   end
+
+  def second_menu
+    what_next
+    choice = user_input.to_i
+    until choice != 0 && choice <= 5
+      puts "please type a number 1-5"
+      choice = user_input.to_i
+    end
+    case choice
+      when 1
+        puts "enter the mood id for the mood you'd like to update"
+        id = user_input.to_i
+        @name.update_mood(id)
+        second_menu
+      when 2
+        #delete_moods
+      when 3
+        #see other people's moods
+      when 4
+        #rate the app
+      when 5
+        #exit the app!
+      end
+  end
+
+  def what_next
+    puts "what would you like to do next?"
+    puts <<-end
+    1. update a mood
+    2. delete my moods
+    3. see other people's moods
+    4. rate the app :)
+    5. exit Instamood :(
+    end
+    puts "please choose a number"
+  end
+
 
   def welcome
     puts "Welcome to Instamood!"
@@ -61,6 +108,7 @@ class InstamoodRun
       when 10
         gif_options("imposter")
       end
+      @name.list_moods
   end
 
   def hru
