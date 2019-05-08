@@ -18,8 +18,6 @@ class InstamoodRun
       #rate_the_app
       #exit
 
-
-  exit
   end
 
   def second_menu
@@ -39,17 +37,17 @@ class InstamoodRun
         @name.update_mood(id)
         second_menu
       when 3#working
-        puts "your feelings are valid! DON'T DELETE!"
-        #sleep
-        puts "if you still want to delete type yes"
-        input = user_input
-        if input == "yes"
-          @name.delete_moods
-          second_menu
-        else
-          puts "Whew! Good choice."
-          second_menu
-        end
+          puts "your feelings are valid! DON'T DELETE!"
+          #sleep
+          puts "if you still want to delete type yes"
+          input = user_input
+          if input == "yes"
+            @name.delete_moods
+            second_menu
+          else
+            puts "Whew! Good choice."
+            second_menu
+          end
       when 4#working
         @name.list_moods
         second_menu
@@ -59,7 +57,7 @@ class InstamoodRun
       when 6
         #rate the app
       when 7#working
-        return
+        abort("Thank you for using Instamood! Have a good day!")
       end
   end
 
@@ -77,10 +75,6 @@ class InstamoodRun
     end
     sleep 1
     puts "please choose a number"
-  end
-
-  def exit#COMPLETE
-    puts "Thank you for using Instamood! Have a good day!"
   end
 
   def welcome
@@ -156,7 +150,7 @@ class InstamoodRun
   end
 
   def gif_options(category)
-    gif = Gif.where("category  = 'happy'")#find active record method for this where query
+    gif = Gif.where("category = '#{category}'")#find active record method for this where query
     # binding.pry
     user_choice = gif.sample
     puts user_choice.url#should actually display this gif in the terminal
