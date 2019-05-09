@@ -141,15 +141,15 @@ class InstamoodRun
 
   def gif_options(category)#COMPLETE
     gif = Gif.where("category = '#{category}'")#find active record method for this where query
-    # binding.pry
     user_choice = gif.sample
-    puts user_choice.url#should actually display this gif in the terminal
+    system('open', "#{user_choice.url}")#should open the returned url in the browser
     sleep 1
     puts "type 'keep' to keep this gif or 'reject' for another option"
     input = user_input
     until input == "keep"
       if input == "reject"
-        puts gif.sample.url
+        user_choice = gif.sample
+        system('open', "#{user_choice.url}")
         sleep 1
         puts "keep or reject"
         input = user_input
@@ -163,11 +163,11 @@ class InstamoodRun
     return
   end
 
-  def save_mood(gif, user)#COMPLETE
+  def save_mood(gif, user)#SHOW WHAT THEY'VE SAVED
     sleep 1
     puts "Enter your caption"
     caption = user_input
-    Mood.create(
+    mood = Mood.create(
       gif_id: gif.id,
       user_id: user.id,
       caption: caption
