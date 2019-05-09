@@ -3,6 +3,7 @@ class InstamoodRun
   attr_accessor :name
 
   def run
+    Title.title
     welcome
     sleep 2
     main_menu
