@@ -13,34 +13,28 @@ USER STORIES
 5. Users can update the caption on previous moods they've created using the mood's id number.
 6.	Users can view all of the moods they've created along with their id numbers and corresponding captions.
 7. Users can view all moods posted to the app including those by other users in a "timeline"
-8. Users can rate their experience with Instamood on a scale of 1-5.
-
-METHODS THAT AREN'T FUNCTIONAL AS YET
-1. user can rate the app
-2. user can like other people's moods
 
 
 STRETCH GOALS
-1. see their friend’s moods
-#2.	Ask if the user would like to post a mood or see the posts of others.
-#5.	If user selects see the posts of others, lists out all previous mood posts
-    - Give user option to like those posts
-6.	User is able to rate their experience store all ratings.
-7.	average all ratings and print average to the console
-
-
+1. User can see moods posted by a particular user.
+2. User can like their  moods or the moods of others
+3. User is able to rate their experience with Instamood.
+4. Instamood is able to store and display all ratings from users.
+5. #average_ratings is able to produce an average of all user  ratings that updates whenever new ratings are entered.
 
 
 APP_CLI METHODS
 1. #welcome
-    Greets the user. Asks for the user's username and acknowledges users that are returning to the app. If this is the user's first experience with Instamood, it creates a user instance using their input as a argument.
-2.  #main_menu
-3. second_menu
+    Greets the user. Asks for the user's username and acknowledges users that are returning to the app. If this is the user's first experience with Instamood, it creates a user instance using their input as a argument. This user instance is saved to the database.
+2.  #hru (abbreviation - "how are you")
+    Helper method that asks they user how they're feeling and displays 10 different emotion options. Prompts the user to make a choice.
+3. #main_menu
+    Takes the input from #hru and uses it to run #gif_options(see below). Ensures that the input provided by the user can be converted to an integer between 1 and 10.
+4. #second_menu
     #ask what they want to do next
     #update_mood
     #delete_moods
     #see moods of other users
     #rate_the_app
     #exit the app
-4. hru
-5. what_next
+5. #what_next
