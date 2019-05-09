@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
      new_caption = gets.chomp
      mood.update(caption: new_caption)
      puts "your new caption is #{new_caption}"
+     system("say", "your new caption is #{new_caption}")
      mood
    end
 

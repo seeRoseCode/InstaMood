@@ -13,6 +13,7 @@ class InstamoodRun
 #########################  MAIN METHODS  #####################
   def welcome#COMPLETE
     puts "Welcome to Instamood!"
+    system("say", "welcome to insta mood!")
     sleep 1
     puts "Enter your Username"
     name = user_input
@@ -20,7 +21,9 @@ class InstamoodRun
     if user
       @name = user
       puts "Welcome back #{name.capitalize}!"
+      system("say", "welcome back #{name}")###################
     else
+      system("say", "hi #{name}")
       @name = create_user(name.capitalize)
     end
   end
@@ -31,6 +34,7 @@ class InstamoodRun
     feeling = user_input.to_i
     until feeling != 0 && feeling <= 10
       puts "please type a number 1-10"
+      system("say", "please type a number 1 through 10")
       feeling = user_input.to_i
     end
     case feeling
@@ -64,6 +68,7 @@ class InstamoodRun
     choice = user_input.to_i
     until choice != 0 && choice <= 7
       puts "please type a number 1-7"
+      system("say", "please type a number 1 through 7")
       choice = user_input.to_i
     end
     case choice
@@ -76,6 +81,7 @@ class InstamoodRun
         second_menu
       when 3#working
           puts "your feelings are valid! DON'T DELETE!"
+          system("say", "your feelings are valid! Don't delete!")
           sleep 1
           puts "if you still want to delete type yes"
           input = user_input
@@ -84,6 +90,7 @@ class InstamoodRun
             second_menu
           else
             puts "Whew! Good choice."
+            system("say", "Whew! good choice")
 
             second_menu
           end
@@ -97,6 +104,7 @@ class InstamoodRun
         rate_the_app
         second_menu
       when 7#working
+        system("say", "Thank you for using Insta mood! Have a good day!")
         abort("Thank you for using Instamood! Have a good day!")
       end
   end
@@ -106,6 +114,7 @@ class InstamoodRun
 
   def hru#COMPLETE
     puts "How are you feeling?"
+    system("say", "how are you feeling?")
     sleep 1
     puts <<-end
     1. Happy
@@ -126,6 +135,7 @@ class InstamoodRun
 
   def what_next#COMPLETE
     puts "what would you like to do next?"
+    system("say", "what would you like to do next?")
     sleep 1
     puts <<-end
     1. create a new mood
@@ -143,6 +153,7 @@ class InstamoodRun
     gif = Gif.where("category = '#{category}'")#find active record method for this where query
     user_choice = gif.sample
     system('open', "#{user_choice.url}")#should open the returned url in the browser
+    system("say", "is this how you feel?")
     sleep 1
     puts "type 'keep' to keep this gif or 'reject' for another option"
     input = user_input
@@ -152,10 +163,12 @@ class InstamoodRun
         system('open', "#{user_choice.url}")
         sleep 1
         puts "keep or reject"
+        system("say", "how about this one?")
         input = user_input
       else
         sleep 1
         puts "please type keep or reject"
+        system("say", "please type keep or reject")
         input = user_input
       end
     end
@@ -167,6 +180,7 @@ class InstamoodRun
     sleep 1
     puts "Enter your caption"
     caption = gets.chomp
+    system("say", "your caption is. #{caption}")
     mood = Mood.create(
       gif_id: gif.id,
       user_id: user.id,
@@ -174,9 +188,6 @@ class InstamoodRun
     )
   end
 
-  def  display_gif_in_terminal
-    #HOW TO ACTUALLY DISPLAY THE GIF IN THE TERMINAL
-  end
 
 ##################### BASIC HELPER METHODS ####################
 
@@ -191,27 +202,25 @@ class InstamoodRun
   end
   ##################### STRETCH METHODS ####################
 
-  def rate_the_app#STILL NEED A WAY TO OUTPUT THE AVERAGE
+  def rate_the_app#COMPLETE
     prompt = TTY::Prompt.new
-    # prompt.select("How was your Instamood experience? Please select 1-5 (5 being AWESOME; 1 being HORRIBLE)", %w(1 2 3 4 5), cycle: true)
     prompt.select("How was your Instamood experience? Please select 1-5 (5 being AWESOME; 1 being HORRIBLE") do |menu|
-      menu.choice '1', -> { puts 'Way harsh, Tai.', Rating.create(user_id: @name.id, number: 1)}
-      menu.choice '2', -> { puts 'Sounds like a personal problem.', Rating.create(user_id: @name.id, number: 2)}
-      menu.choice '3', -> { puts 'We think you meant to select 5', Rating.create(user_id: @name.id, number: 3)}
-      menu.choice '4', -> { puts "We'll take it.", Rating.create(user_id: @name.id, number: 4)}
-      menu.choice '5', -> { puts "Thanks for your feedback! We're happy you're happy with Instamood.", Rating.create(user_id: @name.id, number: 5)}
+      menu.choice '1', -> { puts 'Way harsh, Tai.', Rating.create(user_id: @name.id, number: 1)
+                            system("say", "way harsh Tai!")}
+      menu.choice '2', -> { puts 'Sounds like a personal problem.', Rating.create(user_id: @name.id, number: 2)
+                            system("say", "Sounds like a personal problem.")}
+      menu.choice '3', -> { puts 'We think you meant to select 5', Rating.create(user_id: @name.id, number: 3)
+                            system("say", "I think you meant to select five")}
+      menu.choice '4', -> { puts "We'll take it.", Rating.create(user_id: @name.id, number: 4)
+                            system("say", "We'll take it!")}
+      menu.choice '5', -> { puts "Thanks for your feedback! We're happy you're happy with Instamood.", Rating.create(user_id: @name.id, number: 5)
+                            system("say", "Thanks for your feedback! We're happy you're happy with Instamood!")}
     end
     instaverage = average
     puts "Instamood has #{instaverage} stars" #INSERT AVERAGE METHOD FOR RATING HERE
   end
 end
 
-  def average#COMPLETE
+  def average#BUG!!!
     Rating.average
   end
-
-
-
-# def method
-# rating = rate_the_app
-# rating.all.sum {inputs} /
