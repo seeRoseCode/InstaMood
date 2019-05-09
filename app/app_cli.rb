@@ -206,7 +206,7 @@ class InstamoodRun
   end
 end
 
-  def average
+  def average#COMPLETE
     Rating.average
   end
 
