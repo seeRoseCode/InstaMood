@@ -9,7 +9,7 @@ OTHER FUNCTIONALITY
   -formatted
 #2. user can delete previous entries - PAULA
 #3. user can update previous entry - KESHA
-4. user can rate the app
+#4. user can rate the app
 5. user can like other people's moods
 #6. user can exit the app
 
@@ -25,11 +25,9 @@ DELIVERABLES
 
 
 HOPES AND DREAMS
-1. If same user returns to enter a different mood, app can assume how they’re feeling
-2. see their friend’s moods
-3. make their moods public/private
-4.	Ask if the user would like to post a mood or see the posts of others.
-5.	If user selects see the posts of others, lists out all previous mood posts
+1. see their friend’s moods
+#2.	Ask if the user would like to post a mood or see the posts of others.
+#5.	If user selects see the posts of others, lists out all previous mood posts
     - Give user option to like those posts
 6.	User is able to rate their experience store all ratings.
 7.	average all ratings and print average to the console
@@ -39,9 +37,7 @@ HOPES AND DREAMS
 
 APP_CLI METHODS
 1. #welcome
-    #puts a welcome
-    #ask for user name
-    #creates new user with name IF NAME DOES NOT EXIT
+    Greets the user. Asks for the user's username and acknowledges users that are returning to the app. If this is the user's first experience with Instamood, it creates a user instance using their input as a argument.
 2. #second_menu
     #ask what they want to do next
     #update_mood
