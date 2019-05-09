@@ -21,4 +21,4 @@ We will review your change and approve or comment on it.
 
 # Why Contribute?
 
-We are always trying to improve user experience with Instamood, and we welcome any contributions from the greater community. 
+We are always trying to improve user experience with Instamood, and we welcome any contributions from the greater community.
