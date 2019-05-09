@@ -316,3 +316,8 @@ mood1 = Mood.create(
   user_id: user1.id,
   caption: "I'm so happy today!"
 )
+
+rating1 = Rating.create(
+user_id: user1.id,
+rating: 2
+)

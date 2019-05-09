@@ -2,6 +2,7 @@ require 'pry'
 class User < ActiveRecord::Base
    has_many :moods
    has_many :gifs, through: :moods
+   has_one :rating
 
    def list_moods
      moods = self.moods
