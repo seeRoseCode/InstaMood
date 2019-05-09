@@ -94,7 +94,8 @@ class InstamoodRun
         Mood.list_all
         second_menu
       when 6
-        #rate the app
+        rate_the_app
+        second_menu
       when 7#working
         abort("Thank you for using Instamood! Have a good day!")
       end
@@ -177,7 +178,7 @@ class InstamoodRun
     #HOW TO ACTUALLY DISPLAY THE GIF IN THE TERMINAL
   end
 
-##################### BASIC HELPER METHOS ####################
+##################### BASIC HELPER METHODS ####################
 
   def user_input#COMPLETE
     gets.chomp.downcase
@@ -187,6 +188,19 @@ class InstamoodRun
     User.create(
       name: name
     )
+  end
+  ##################### STRETCH METHODS ####################
+
+  def rate_the_app
+    prompt = TTY::Prompt.new
+    # prompt.select("How was your Instamood experience? Please select 1-5 (5 being AWESOME; 1 being HORRIBLE)", %w(1 2 3 4 5), cycle: true)
+    prompt.select("How was your Instamood experience? Please select 1-5 (5 being AWESOME; 1 being HORRIBLE") do |menu|
+      menu.choice '1', -> { puts 'Way harsh, Tai.'}
+      menu.choice '2', -> { puts 'Sounds like a personal problem.'}
+      menu.choice '3', -> { puts 'We think you meant to select 5'}
+      menu.choice '4', -> { puts "We'll take it."}
+      menu.choice '5', -> { puts "Thanks for your feedback! We're happy you're happy with Instamood."}
+    end
   end
 
 end
