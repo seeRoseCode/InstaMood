@@ -319,5 +319,5 @@ mood1 = Mood.create(
 
 rating1 = Rating.create(
 user_id: user1.id,
-rating: 2
+number: 2
 )
