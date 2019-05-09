@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20190509173047) do
 
   create_table "ratings", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "number"
+    t.integer "rating"
   end
 
   create_table "users", force: :cascade do |t|
