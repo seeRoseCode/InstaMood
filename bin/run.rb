@@ -6,5 +6,5 @@ InstamoodRun.new.run
 #
 #
 
-# binding.pry
+binding.pry
 0

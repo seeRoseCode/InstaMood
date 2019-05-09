@@ -195,16 +195,21 @@ class InstamoodRun
     prompt = TTY::Prompt.new
     # prompt.select("How was your Instamood experience? Please select 1-5 (5 being AWESOME; 1 being HORRIBLE)", %w(1 2 3 4 5), cycle: true)
     prompt.select("How was your Instamood experience? Please select 1-5 (5 being AWESOME; 1 being HORRIBLE") do |menu|
-      binding.pry
       menu.choice '1', -> { puts 'Way harsh, Tai.', Rating.create(user_id: @name.id, number: 1)}
       menu.choice '2', -> { puts 'Sounds like a personal problem.', Rating.create(user_id: @name.id, number: 2)}
       menu.choice '3', -> { puts 'We think you meant to select 5', Rating.create(user_id: @name.id, number: 3)}
       menu.choice '4', -> { puts "We'll take it.", Rating.create(user_id: @name.id, number: 4)}
       menu.choice '5', -> { puts "Thanks for your feedback! We're happy you're happy with Instamood.", Rating.create(user_id: @name.id, number: 5)}
     end
-    puts "Average Instamood rating is #{average}"#INSERT AVERAGE METHOD FOR RATING HERE
+    instaverage = average
+    puts "Instamood has #{instaverage} stars" #INSERT AVERAGE METHOD FOR RATING HERE
   end
 end
+
+  def average#COMPLETE
+    Rating.average
+  end
+
 
 
 # def method
