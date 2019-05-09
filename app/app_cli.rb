@@ -3,6 +3,7 @@ class InstamoodRun
   attr_accessor :name
 
   def run
+    system("open", "IFeelGood.mp3")
     welcome
     sleep 2
     main_menu
