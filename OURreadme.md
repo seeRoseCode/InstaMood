@@ -1,30 +1,26 @@
+CLI APPLICATION
+
+APP TITLE - "INSTAMOOD"
+
+DESCRIPTION
+Instamood is a CLI application that allows its users to document how they are feeling throughout the day with a gif and caption that they feel best represents them in that moment. Users can create a simple profile accessed via their chosen username.
+
 USER STORIES
-# 1.	As a user, I want to be able to enter my name to retrieve my previous mood entries.
-# 2.	As a user I want to be able to enter my mood and retrieve corresponding GIF from the app
-# 3.	As a user I want to be able to reject the computer generated response
-# 4.	As a user I want to be able to save the mood entries I’ve made and retrieve previous entries
+1. Users are able to create a simple profile by entering their chosen username upon first initiation of the app. When returning to the app, the app will recognize that username.
+2. Users are able to track their "mood" throughout the day by entering how they're feeling, choosing a corresponding gif from the options available, and adding a caption for that gif.
+3.	Users can save each mood they create and retrieve them later using the id generated for each mood.
+4. Users can delete previous moods they've created using the mood's id number OR  delete all previous moods created.
+5. Users can update the caption on previous moods they've created using the mood's id number.
+6.	Users can view all of the moods they've created along with their id numbers and corresponding captions.
+7. Users can view all moods posted to the app including those by other users in a "timeline"
+8. Users can rate their experience with Instamood on a scale of 1-5.
 
-OTHER FUNCTIONALITY
-# 1. user can view all previous entries
-  -formatted
-#2. user can delete previous entries - PAULA
-#3. user can update previous entry - KESHA
-#4. user can rate the app
-5. user can like other people's moods
-#6. user can exit the app
-
-DELIVERABLES
-#1. Welcomes the user
-#2. Asks the user for their current mood.
-#3. Stores the users mood entry
-#4. Based on user response, queries an API db for GIFs related to that mood.
-#5. Prints a random GIF from that query to the monitor.
-#6. User can choose to save or reject that mood
-#7. User can see all their moods and related GIFs
-8. COSMETICS!
+METHODS THAT AREN'T FUNCTIONAL AS YET
+1. user can rate the app
+2. user can like other people's moods
 
 
-HOPES AND DREAMS
+STRETCH GOALS
 1. see their friend’s moods
 #2.	Ask if the user would like to post a mood or see the posts of others.
 #5.	If user selects see the posts of others, lists out all previous mood posts
@@ -38,10 +34,13 @@ HOPES AND DREAMS
 APP_CLI METHODS
 1. #welcome
     Greets the user. Asks for the user's username and acknowledges users that are returning to the app. If this is the user's first experience with Instamood, it creates a user instance using their input as a argument.
-2. #second_menu
+2.  #main_menu
+3. second_menu
     #ask what they want to do next
     #update_mood
     #delete_moods
     #see moods of other users
     #rate_the_app
     #exit the app
+4. hru
+5. what_next
