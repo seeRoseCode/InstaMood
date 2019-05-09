@@ -7,6 +7,6 @@ InstamoodRun.new.run
 #
 # user1.create_mood
 
-#
+
 # binding.pry
 0
