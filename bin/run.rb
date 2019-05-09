@@ -3,9 +3,9 @@ require 'pry'
 
 InstamoodRun.new.run
 
-# user1 = User.all[0]
+# user1 = User.all[4]
 #
-# user1.create_mood
+# user1.list_moods
 
 
 # binding.pry

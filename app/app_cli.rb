@@ -19,9 +19,9 @@ class InstamoodRun
     user = User.all.find{|user| user.name == name}
     if user
       @name = user
-      puts "Welcome back #{name}!"
+      puts "Welcome back #{name.capitalize}!"
     else
-      @name = create_user(name)
+      @name = create_user(name.capitalize)
     end
   end
 
@@ -165,7 +165,7 @@ class InstamoodRun
   def save_mood(gif, user)#SHOW WHAT THEY'VE SAVED
     sleep 1
     puts "Enter your caption"
-    caption = user_input
+    caption = gets.chomp
     mood = Mood.create(
       gif_id: gif.id,
       user_id: user.id,

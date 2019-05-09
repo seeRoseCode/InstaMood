@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
    def list_moods
      moods = self.moods
      moods.each do |mood|
-     puts "#{mood.id}. #{mood.gif.url} \n #{mood.caption}"
+       puts "#{mood.id}. #{mood.gif.url} \n #{mood.caption}"
      end
    end
 
