@@ -159,7 +159,6 @@ class InstamoodRun
       end
     end
     save_mood(user_choice, @name)
-    puts "TESTING 1 2 3"
     return
   end
 

@@ -23,8 +23,13 @@ class User < ActiveRecord::Base
      mood
    end
 
+   def delete_mood(id)
+     mood = retrieve_mood(id)
+     mood.destroy
+     puts "your mood has been deleted"
+   end
 
-   def delete_moods
+   def delete_all_moods
     self.moods.destroy_all
     puts "All done!"
    end
