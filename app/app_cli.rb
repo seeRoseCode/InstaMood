@@ -82,19 +82,22 @@ class InstamoodRun
         id = user_input.to_i
         @name.update_mood(id)
         second_menu
-      when 3#working
+      when 3#BUG
           puts "your feelings are valid! DON'T DELETE!"
           system("say", "your feelings are valid! Don't delete!")
           sleep 1
           puts "if you still want to delete type yes"
           input = user_input
           if input == "yes"
+            prompt = TTY::Prompt.new
+            prompt.select("Which mood would you like to delete?")
+            menu.choice 'the last one', -> {id = @name.retrieve_last_mood}
+            menu.choice 'all of them', -> {}
             @name.delete_moods
             second_menu
           else
             puts "Whew! Good choice."
             system("say", "Whew! good choice")
-
             second_menu
           end
       when 4#working
