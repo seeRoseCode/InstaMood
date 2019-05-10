@@ -6,21 +6,26 @@ class User < ActiveRecord::Base
 
    def list_moods
      moods = self.moods
-     moods.each do |mood|
-       puts "#{mood.id}. #{mood.gif.url} \n #{mood.caption}"
+     if moods == []
+       puts "you don't have any moods."
+       system("say", "you don't have any moods.")
+     else
+       moods.each do |mood|
+         puts "#{mood.id}. #{mood.gif.url} \n #{mood.caption}"
+       end
      end
    end
 
-   def retrieve_mood(id)
-     Mood.all.find(id)
-   end
+   # def retrieve_mood(id)
+   #   Mood.all.find(id)
+   # end
 
    def retrieve_last_mood
      self.moods.last
    end
 
    def update_mood(id)
-     mood = retrieve_mood(id)
+     mood = retrieve_last_mood
      puts "please enter your new caption"
      new_caption = gets.chomp
      mood.update(caption: new_caption)
@@ -29,16 +34,17 @@ class User < ActiveRecord::Base
      mood
    end
 
-   def delete_mood
+   def delete_mood#COMPLETE
      mood = retrieve_last_mood
      mood.destroy
      puts "your mood has been deleted"
-     system("say", "your mood has been destroyed")
+     system("say", "your mood has been deleted")
    end
 
-   def delete_all_moods
+   def delete_all_moods#COMPLETE
     self.moods.destroy_all
-    puts "All done!"
+    puts "All gone!"
+    system("say", "all gone")
    end
 
 

@@ -3,7 +3,7 @@ class InstamoodRun
   attr_accessor :name
 
   def run
-    system("open", "IFeelGood.mp3")
+    system("open", "-g", "IFeelGood.mp3")#working
     Title.title
     sleep 2
     welcome
@@ -24,10 +24,10 @@ class InstamoodRun
     if user
       @name = user
       puts "Welcome back #{name.capitalize}!"
-      system("say", "welcome back #{name}")###################
+      system("say", "welcome back #{name}")
     else
       system("say", "hi #{name}")
-      @name = create_user(name.capitalize)
+      @name = create_user(name)
     end
   end
 
@@ -82,7 +82,7 @@ class InstamoodRun
         id = user_input.to_i
         @name.update_mood(id)
         second_menu
-      when 3#BUG#####################################
+      when 3#working
           puts "your feelings are valid! DON'T DELETE!"
           system("say", "your feelings are valid! Don't delete!")
           sleep 1
@@ -106,7 +106,7 @@ class InstamoodRun
       when 5#working
         Mood.list_all
         second_menu
-      when 6
+      when 6#working
         rate_the_app
         second_menu
       when 7#working
