@@ -78,9 +78,7 @@ class InstamoodRun
       when 1#working
         main_menu
       when 2#working
-        puts "enter the mood id for the mood you'd like to update"
-        id = user_input.to_i
-        @name.update_mood(id)
+        update_mood
         second_menu
       when 3#working
           puts "your feelings are valid! DON'T DELETE!"
@@ -111,6 +109,8 @@ class InstamoodRun
         second_menu
       when 7#working
         system("say", "Thank you for using Insta mood! Have a good day!")
+        avg = get_average
+        puts "Instamood has #{avg} stars" #INSERT AVERAGE METHOD FOR RATING HERE
         abort("Thank you for using Instamood! Have a good day!")
       end
   end
@@ -145,7 +145,7 @@ class InstamoodRun
     sleep 1
     puts <<-end
     1. create a new mood
-    2. update a mood
+    2. edit a mood
     3. delete my moods
     4. view my moods
     5. view all moods
@@ -161,20 +161,20 @@ class InstamoodRun
     system('open', "#{user_choice.url}")#should open the returned url in the browser
     system("say", "is this how you feel?")
     sleep 1
-    puts "type 'keep' to keep this gif or 'reject' for another option"
+    puts "type 'yes' to keep this gif or 'no' for another option"
     input = user_input
-    until input == "keep"
-      if input == "reject"
+    until input == "yes"
+      if input == "no"
         user_choice = gif.sample
         system('open', "#{user_choice.url}")
         sleep 1
-        puts "keep or reject"
+        puts "yes or no"
         system("say", "how about this one?")
         input = user_input
       else
         sleep 1
-        puts "please type keep or reject"
-        system("say", "please type keep or reject")
+        puts "please type yes or no"
+        system("say", "please type yes or no")
         input = user_input
       end
     end
@@ -194,6 +194,14 @@ class InstamoodRun
     )
   end
 
+  def update_mood
+    system("say", "which mood would you like to edit")
+    prompt = TTY::Prompt.new
+    prompt.select("which mood would you like to edit?") do |menu|
+      menu.choice 'the last one', -> {@name.update_last_mood}
+      menu.choice 'enter mood id', -> {@name.update_mood_by_id}
+    end
+  end
 
 ##################### BASIC HELPER METHODS ####################
 
@@ -220,13 +228,12 @@ class InstamoodRun
       menu.choice '4', -> { puts "We'll take it.", Rating.create(user_id: @name.id, number: 4)
                             system("say", "We'll take it!")}
       menu.choice '5', -> { puts "Thanks for your feedback! We're happy you're happy with Instamood.", Rating.create(user_id: @name.id, number: 5)
-                            system("say", "Thanks for your feedback! We're happy you're happy with Instamood!")}
+                            system("say", "Thanks for your feedback! We're happy you're happy with Insta mood!")}
     end
-    instaverage = average
-    puts "Instamood has #{instaverage} stars" #INSERT AVERAGE METHOD FOR RATING HERE
   end
-end
 
-  def average#BUG!!!
-    Rating.average
+  def get_average#COMPLETE
+    Rating.app_average
   end
+
+end

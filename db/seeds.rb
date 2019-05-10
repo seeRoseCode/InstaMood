@@ -1,6 +1,7 @@
 User.destroy_all
 Gif.destroy_all
 Mood.destroy_all
+Rating.destroy_all
 
 user1 = User.create(
   name: "Kesha"
