@@ -49,3 +49,13 @@ BUGS WE COULDN'T GET RID OF
 1.  When generating a GIF for the user via #gif_options, we were unable to figure out how to generate a random gif without repeating previous options until all options were shown. The problem is most likely due to the sample size being so small. Each GIF category only has 5 GIFs to sample from making it more likely to see repeats than if we were pulling from the actual GIPHY API where we found them. In the interest of time, we opted to focus on fixing other bugs.
 2. When the user opts to delete their mood, the application doesn't acknowledge the deleted object immediately. We are unsure of what causes the delay or how long it lasts. Results vary from attempt to attempt. Sometimes the database is not updated until the program is terminated and sometimes it updates when trying to run the update mood methods by raising an error saying that the GIF is not available to update.
 3. When the user rates the app, it returns the Rating instance to the command line. We were both unsure of why it was doing that and unsure of how to fix it. In the interest of time, we opted to focus on fixing other bugs.
+
+Title
+1. #.title
+  A way to get ASCII art into the file. Puts INSTAMOOD.
+
+Rating
+1. #.app_average
+  Takes all of the ratings and averages them.
+2. #.display_ratings  
+  Allows the run function to display all ratings 
