@@ -34,6 +34,16 @@ APP_CLI METHODS
     A helper method that asks the user what they would like to do next and presents them with options to choose from.
 5. #second_menu
     Runs the #what_next helper method. Based on user input runs the following methods: #main_menu, #update_mood, #delete_moods, #list_moods, Mood.list_all, #rate_the_app, #exit. Uses recursion to return to this menu after each method ends except #exit. When user opts to exit the app, runs #abort to exit the program.
+    #gif_options
+    Pulls a random gif from the category, and displays that URL to the terminal. Should automatically open the link in Chrome.
+    Asks user if they want to keep or reject the gif. If they type 'yes', they move on to #save_mood.
+    If they type 'no', another random gif is displayed. This will continue until they type 'yes'.
+7. #save_mood
+    Once the user selects a gif, they are prompted to type in a caption. A new mood is created that captures the gif_id, user_id, and caption.
+8. #user_input
+    Gets input to the terminal from the user and removes any additional spaces/lines. Helper method.
+9. #create_user(name)
+    Creates a new user with a name. Helper method.
 
 BUGS WE COULDN'T GET RID OF
 1.  When generating a GIF for the user via #gif_options, we were unable to figure out how to generate a random gif without repeating previous options until all options were shown. The problem is most likely due to the sample size being so small. Each GIF category only has 5 GIFs to sample from making it more likely to see repeats than if we were pulling from the actual GIPHY API where we found them. In the interest of time, we opted to focus on fixing other bugs.
