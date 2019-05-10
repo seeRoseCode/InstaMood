@@ -63,7 +63,15 @@ USER METHODS
     deletes all moods created by the current user instance.
 8. #user_input
     gets input from the user and downcases it to account for input variety
-    
+
+MOOD METHODS
+1. .list_all
+    class method that lists all mood instances that have been created formatted by id number, url, and caption.
+
+
+
+
+
 BUGS WE COULDN'T GET RID OF
 1.  When generating a GIF for the user via #gif_options, we were unable to figure out how to generate a random gif without repeating previous options until all options were shown. The problem is most likely due to the sample size being so small. Each GIF category only has 5 GIFs to sample from making it more likely to see repeats than if we were pulling from the actual GIPHY API where we found them. In the interest of time, we opted to focus on fixing other bugs.
 2. When the user opts to delete their mood, the application doesn't acknowledge the deleted object immediately. We are unsure of what causes the delay or how long it lasts. Results vary from attempt to attempt. Sometimes the database is not updated until the program is terminated and sometimes it updates when trying to run the update mood methods by raising an error saying that the GIF is not available to update.
