@@ -16,22 +16,39 @@ class User < ActiveRecord::Base
      end
    end
 
-   # def retrieve_mood(id)
-   #   Mood.all.find(id)
-   # end
+   def retrieve_mood(id)
+     Mood.all.find(id)
+   end
 
    def retrieve_last_mood
      self.moods.last
    end
 
-   def update_mood(id)
+   def update_last_mood
      mood = retrieve_last_mood
      puts "please enter your new caption"
+     system("say", "enter your new caption")
      new_caption = gets.chomp
      mood.update(caption: new_caption)
      puts "your new caption is #{new_caption}"
-     system("say", "your new caption is #{new_caption}")
-     mood
+     system("say", "your new caption is. #{new_caption}")
+   end
+
+   def update_mood_by_id
+     self.list_moods
+     id = gets.chomp.to_i
+     if id == 0
+       puts "please enter a number"
+       system("say", "please enter a number")
+     else
+       mood = retrieve_mood(id)
+       puts "please enter your new caption"
+       system("say", "enter your new caption")
+       new_caption = gets.chomp
+       mood.update(caption: new_caption)
+       puts "your new caption is #{new_caption}"
+       system("say", "your new caption is. #{new_caption}")
+     end
    end
 
    def delete_mood#COMPLETE
