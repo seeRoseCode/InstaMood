@@ -4,15 +4,15 @@ Mood.destroy_all
 Rating.destroy_all
 
 user1 = User.create(
-  name: "Kesha"
+  name: "kesha"
 )
 
 user2 = User.create(
-  name: "Paula"
+  name: "paula"
 )
 
 user3 = User.create(
-  name: "Blake"
+  name: "blake"
 )
 
 gif1 = Gif.create(
@@ -320,5 +320,15 @@ mood1 = Mood.create(
 
 rating1 = Rating.create(
 user_id: user1.id,
-number: 2
+number: 5
+)
+
+rating2 = Rating.create(
+  user_id: user2.id,
+  number: 5
+)
+
+rating3 = Rating.create(
+  user_id: user3.id,
+  number: 3
 )
