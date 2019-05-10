@@ -38,3 +38,13 @@ APP_CLI METHODS
     #rate_the_app
     #exit the app
 5. #what_next
+6. #gif_options
+    Pulls a random gif from the category, and displays that URL to the terminal. Should automatically open the link in Chrome.
+    Asks user if they want to keep or reject the gif. If they type 'yes', they move on to #save_mood.
+    If they type 'no', another random gif is displayed. This will continue until they type 'yes'.
+7. #save_mood
+    Once the user selects a gif, they are prompted to type in a caption. A new mood is created that captures the gif_id, user_id, and caption.
+8. #user_input
+    Gets input to the terminal from the user and removes any additional spaces/lines. Helper method.
+9. #create_user(name)
+    Creates a new user with a name. Helper method.
