@@ -5,11 +5,8 @@ class InstamoodRun
   def run
     system("open", "-g", "IFeelGood.mp3")#working
     Title.title
-    sleep 2
     welcome
-    sleep 2
     main_menu
-    sleep 1
     second_menu
   end
 
@@ -17,7 +14,6 @@ class InstamoodRun
   def welcome#COMPLETE
     puts "Welcome to Instamood!"
     system("say", "welcome to insta mood!")
-    sleep 1
     puts "Enter your Username"
     name = user_input
     user = User.all.find{|user| user.name == name}
@@ -66,7 +62,6 @@ class InstamoodRun
   end
 
   def second_menu#COMPLETE
-    sleep 1
     what_next
     choice = user_input.to_i
     until choice != 0 && choice <= 7
@@ -121,7 +116,6 @@ class InstamoodRun
   def hru#COMPLETE
     puts "How are you feeling?"
     system("say", "how are you feeling?")
-    sleep 1
     puts <<-end
     1. Happy
     2. Sad
@@ -142,7 +136,6 @@ class InstamoodRun
   def what_next#COMPLETE
     puts "what would you like to do next?"
     system("say", "what would you like to do next?")
-    sleep 1
     puts <<-end
     1. create a new mood
     2. edit a mood
@@ -183,7 +176,6 @@ class InstamoodRun
   end
 
   def save_mood(gif, user)#SHOW WHAT THEY'VE SAVED
-    sleep 1
     puts "Enter your caption"
     caption = gets.chomp
     system("say", "your caption is. #{caption}")
