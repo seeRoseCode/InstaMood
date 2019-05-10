@@ -7,10 +7,4 @@ class Rating < ActiveRecord::Base
     all.average(:number).to_i
   end
 
-  def self.display_ratings#COMPLETE
-    Rating.all.each do |rating|
-      puts "#{rating.user.name} gave Instamood #{rating.number} stars!"
-    end
-  end
-
 end
