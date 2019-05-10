@@ -15,6 +15,10 @@ class User < ActiveRecord::Base
      Mood.all.find(id)
    end
 
+   def retrieve_last_mood
+     self.moods.last
+   end
+
    def update_mood(id)
      mood = retrieve_mood(id)
      puts "please enter your new caption"
@@ -25,10 +29,11 @@ class User < ActiveRecord::Base
      mood
    end
 
-   def delete_mood(id)
-     mood = retrieve_mood(id)
+   def delete_mood
+     mood = retrieve_last_mood
      mood.destroy
      puts "your mood has been deleted"
+     system("say", "your mood has been destroyed")
    end
 
    def delete_all_moods
