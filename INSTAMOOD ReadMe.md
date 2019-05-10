@@ -31,10 +31,11 @@ APP_CLI METHODS
 3. #main_menu
     Takes the input from #hru and uses it to run #gif_options(see below). Ensures that the input provided by the user can be converted to an integer between 1 and 10.
 4. #second_menu
-    #ask what they want to do next
-    #update_mood
-    #delete_moods
-    #see moods of other users
-    #rate_the_app
-    #exit the app
+    Runs the #what_next helper method to ask the user what they'd like to do next. Based on user input runs the following methods: #main_menu, #update_mood, #delete_moods, #list_moods, Mood.list_all, #rate_the_app, #exit. Uses recursion to return to this menu after each method ends except #exit. When user opts to exit the app, runs #abort to exit the program.
 5. #what_next
+    A helper method that asks the user what they would like to do next
+
+BUGS WE COULDN'T GET RID OF
+1.  When generating a GIF for the user via #gif_options, we were unable to figure out how to generate a random gif without repeating previous options until all options were shown. The problem is most likely due to the sample size being so small. Each GIF category only has 5 GIFs to sample from making it more likely to see repeats than if we were pulling from the actual GIPHY API where we found them. In the interest of time, we opted to focus on fixing other bugs.
+2. When the user opts to delete their mood, the application doesn't acknowledge the deleted object immediately. We are unsure of what causes the delay or how long it lasts. Results vary from attempt to attempt. Sometimes the database is not updated until the program is terminated and sometimes it updates when trying to run the update mood methods by raising an error saying that the GIF is not available to update.
+3. When the user rates the app, it returns the Rating instance to the command line. We were both unsure of why it was doing that and unsure of how to fix it. In the interest of time, we opted to focus on fixing other bugs.

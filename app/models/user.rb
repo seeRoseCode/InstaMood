@@ -21,7 +21,13 @@ class User < ActiveRecord::Base
    end
 
    def retrieve_last_mood
-     self.moods.last
+    last_mood = self.moods.last
+    if last_mood == nil
+      puts "You don't have any moods"
+      system("say", "you don't have any moods")
+    else
+      last_mood
+    end
    end
 
    def update_last_mood
