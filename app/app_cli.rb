@@ -3,7 +3,7 @@ class InstamoodRun
   attr_accessor :name
 
   def run
-    system("open", "IFeelGood.mp3")
+    system("open", "-g", "IFeelGood.mp3")#working
     Title.title
     sleep 2
     welcome
@@ -24,10 +24,10 @@ class InstamoodRun
     if user
       @name = user
       puts "Welcome back #{name.capitalize}!"
-      system("say", "welcome back #{name}")###################
+      system("say", "welcome back #{name}")
     else
       system("say", "hi #{name}")
-      @name = create_user(name.capitalize)
+      @name = create_user(name)
     end
   end
 
@@ -89,12 +89,15 @@ class InstamoodRun
           puts "if you still want to delete type yes"
           input = user_input
           if input == "yes"
-            @name.delete_moods
+            prompt = TTY::Prompt.new
+            prompt.select (puts "Which mood would you like to delete?") do |menu|
+            menu.choice 'the last one', -> {@name.delete_mood}
+            menu.choice 'all of them', -> {@name.delete_all_moods}
+          end
             second_menu
           else
             puts "Whew! Good choice."
             system("say", "Whew! good choice")
-
             second_menu
           end
       when 4#working
@@ -103,7 +106,7 @@ class InstamoodRun
       when 5#working
         Mood.list_all
         second_menu
-      when 6
+      when 6#working
         rate_the_app
         second_menu
       when 7#working
