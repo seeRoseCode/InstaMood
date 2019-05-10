@@ -230,7 +230,6 @@ class InstamoodRun
       menu.choice '5', -> { puts "Thanks for your feedback! We're happy you're happy with Instamood.", Rating.create(user_id: @name.id, number: 5)
                             system("say", "Thanks for your feedback! We're happy you're happy with Insta mood!")}
     end
-    puts ""
   end
 
   def get_average#COMPLETE
