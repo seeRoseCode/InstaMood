@@ -64,13 +64,18 @@ USER METHODS
 8. #user_input
     gets input from the user and downcases it to account for input variety
 
-TITLE METHOD
+MOOD METHODS
+1. .list_all
+    class method that lists all mood instances that have been created formatted by id number, url, and caption.
+
+TITLE METHODS
 1. #.title
     A way to get ASCII art into the file. Puts INSTAMOOD.
 
 RATING METHOD
 1. #.app_average
     Takes all of the ratings and averages them.    
+    
 
 BUGS WE COULDN'T GET RID OF
 1.  When generating a GIF for the user via #gif_options, we were unable to figure out how to generate a random gif without repeating previous options until all options were shown. The problem is most likely due to the sample size being so small. Each GIF category only has 5 GIFs to sample from making it more likely to see repeats than if we were pulling from the actual GIPHY API where we found them. In the interest of time, we opted to focus on fixing other bugs.
