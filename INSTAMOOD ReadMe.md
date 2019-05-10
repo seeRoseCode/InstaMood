@@ -41,10 +41,29 @@ APP_CLI METHODS
 7. #save_mood
     Once the user selects a gif, they are prompted to type in a caption. A new mood is created that captures the gif_id, user_id, and caption.
 8. #user_input
-    Gets input to the terminal from the user and removes any additional spaces/lines. Helper method.
+    Gets input to the terminal from the user and removes any additional spaces/lines. downcases that input to account for variations in user inputs. Helper method.
 9. #create_user(name)
     Creates a new user with a name. Helper method.
 
+
+USER METHODS
+1. #list_moods
+    Lists all the moods that belong to the current user instance.
+2. #retrieve_mood(1)
+    Helper method that takes in an argument of a mood id number and returns the mood instance that matches it.
+3. #retrieve_last_mood
+    Helper method that queries the database for the last mood created by the current user instance.
+4. #update_last_mood
+    Allows the user to update the caption of the last mood they created.
+5. #update_mood_by_id
+    Takes in an argument of a mood id and uses #retrieve_mood to allow the user to find that mood instance and update its caption.
+6. #delete_mood
+    uses #retrieve_last_mood to allow the user to find the last mood they created and delete it.
+7. #delete_all_moods
+    deletes all moods created by the current user instance.
+8. #user_input
+    gets input from the user and downcases it to account for input variety
+    
 BUGS WE COULDN'T GET RID OF
 1.  When generating a GIF for the user via #gif_options, we were unable to figure out how to generate a random gif without repeating previous options until all options were shown. The problem is most likely due to the sample size being so small. Each GIF category only has 5 GIFs to sample from making it more likely to see repeats than if we were pulling from the actual GIPHY API where we found them. In the interest of time, we opted to focus on fixing other bugs.
 2. When the user opts to delete their mood, the application doesn't acknowledge the deleted object immediately. We are unsure of what causes the delay or how long it lasts. Results vary from attempt to attempt. Sometimes the database is not updated until the program is terminated and sometimes it updates when trying to run the update mood methods by raising an error saying that the GIF is not available to update.

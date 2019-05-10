@@ -5,6 +5,7 @@ class InstamoodRun
   def run
     system("open", "-g", "IFeelGood.mp3")#working
     Title.title
+    sleep 2
     welcome
     main_menu
     second_menu
